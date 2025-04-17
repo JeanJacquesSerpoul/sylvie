@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<!-- Default language is French -->
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title will be set by JS -->
+    <title data-translate-key="pageTitle">L’art, réinventé par Sylvie van Waesberghe</title>
+
+    <!-- Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;500;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --facebook-blue: #1877F2;
+            --instagram-pink: #E4405F;
+        }
+
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'serif': ['Playfair Display', 'serif'],
+                        'sans': ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        'brand-gold': '#B08D57',
+                        'brand-ivory': '#F8F4E9',
+                        'brand-dark': '#1a1a1a',
+                    }
+                }
+            }
+        }
+
+        .scroll-animate {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        .scroll-animate.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .hero-section { height: 80vh; }
+        }
+
+        .hero-section { height: 100vh; }
+
+        /* Style for active language button (works for both header and footer) */
+        .lang-switcher a.active {
+            font-weight: bold;
+            text-decoration: underline;
+            /* Use white for header, inherit for footer (overridden below) */
+            color: black; /* Make active link black */
+        }
+        /* Non-active links */
+        .lang-switcher a:not(.active) {
+             text-decoration: none;
+             /* Use white for header, inherit for footer (overridden below) */
+             color: black; /* Make non-active links black */
+         }
+         .lang-switcher a:hover {
+             opacity: 0.8;
+         }
+
+        /* Specific color override for footer switcher links */
+         footer .lang-switcher a {
+            color: inherit; /* Inherit gray from footer text */
+         }
+         footer .lang-switcher a.active {
+            color: black; /* Make active link white in footer */
+         }
+
+         /* Header specific colors */
+         header .lang-switcher a {
+             color: white; /* Make header links white */
+         }
+         header .lang-switcher a.active {
+             color: black; /* Make header active link white */
+             font-weight: bold;
+             text-decoration: underline;
+         }
+         header .lang-switcher a:not(.active) {
+             color: white; /* Make header non-active links white */
+             text-decoration: none;
+         }
+         header .lang-switcher span {
+             color: white; /* Make separators white */
+         }
+
+
+    </style>
+</head>
+
+<body class="font-sans bg-white text-brand-dark">
+
+    <!-- Header Immersif -->
+    <header class="relative hero-section flex items-center justify-center text-center text-white overflow-hidden">
+        <!-- Language Switcher (Header) -->
+        <div class="lang-switcher absolute top-4 right-4 z-20 text-sm space-x-2">
+            <a href="#" id="lang-fr-header" data-lang="fr">FR</a> <!-- Added unique ID -->
+            <span>|</span>
+            <a href="#" id="lang-en-header" data-lang="en">EN</a> <!-- Added unique ID -->
+            <span>|</span>
+            <a href="#" id="lang-es-header" data-lang="es">ES</a> <!-- Added Spanish -->
+        </div>
+        <!-- End Language Switcher (Header) -->
+
+        <div class="absolute inset-0 z-0">
+            <img src="img/img1.jpg" alt="Œuvre emblématique de Sylvie van Waesberghe" data-translate-key="heroImageAlt"
+                class="w-full h-full object-cover object-center">
+            <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+        </div>
+        <div class="relative z-10 p-8 scroll-animate">
+            <h1 data-translate-key="heroTitle" class="font-serif text-5xl md:text-7xl lg:text-8xl font-bold leading-tight mb-4">
+                L’art, réinventé par <span class="text-brand-gold">Sylvie van Waesberghe</span>
+            </h1>
+            <p data-translate-key="heroSubtitle" class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto">
+                Explorez un univers où la matière prend vie et l'émotion devient tangible.
+            </p>
+        </div>
+        <div
+            class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-10 text-white animate-bounce hidden md:block">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24"
+                stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+            </svg>
+        </div>
+    </header>
+
+    <main>
+        <!-- Section À Propos -->
+        <section id="about" class="py-20 md:py-32 bg-brand-ivory">
+            <div
+                class="container mx-auto px-6 lg:px-8 max-w-screen-xl grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+                <div class="scroll-animate">
+                    <img src="img/me.jpg" alt="Portrait de Sylvie van Waesberghe" data-translate-key="aboutImageAlt"
+                        class="w-full h-auto object-cover rounded-lg shadow-xl aspect-[4/5]">
+                </div>
+                <div class="scroll-animate">
+                    <h2 data-translate-key="aboutTitle" class="font-serif text-4xl md:text-5xl font-bold text-brand-dark mb-6">
+                        À Propos de <span class="text-brand-gold">Sylvie van Waesberghe</span>
+                    </h2>
+                    <p data-translate-key="aboutP1" class="text-lg text-gray-700 leading-relaxed mb-4">
+                        Artiste, Sylvie van Waesberghe sculpte, peint et façonne des œuvres uniques.
+                    </p>
+                    <p data-translate-key="aboutP2" class="text-lg text-gray-700 leading-relaxed mb-6">
+                        Chaque pièce est le fruit d'une recherche approfondie et d'une exécution méticuleuse,
+                        garantissant une authenticité absolue. Posséder une œuvre de Sylvie van Waesberghe, c'est
+                        inviter chez soi un fragment d'émotion pure et d'exclusivité.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Galerie d'Œuvres -->
+        <section id="gallery" class="py-20 md:py-32 bg-white">
+            <div class="container mx-auto px-6 lg:px-8 max-w-screen-xl">
+                <h2 data-translate-key="galleryTitle" class="font-serif text-4xl md:text-5xl font-bold text-center text-brand-dark mb-16 scroll-animate">
+                    Quelques Œuvres Sélectionnées
+                </h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+                    <!-- Œuvre 1 -->
+                    <div class="group scroll-animate text-center">
+                        <div class="overflow-hidden rounded-lg shadow-lg mb-4 bg-gray-100">
+                            <img src="img/img3.jpg?v=1.0.2" alt="Oeuvre d'art par Sylvie van Waesberghe 1" data-translate-key="galleryAlt1"
+                                class="w-full h-auto object-cover aspect-square transition duration-500 ease-in-out group-hover:scale-105">
+                        </div>
+                        <p data-translate-key="galleryCaption1" class="mt-2 text-sm text-gray-700">Légende de l'œuvre 1</p>
+                    </div>
+                    <!-- Œuvre 2 -->
+                    <div class="group scroll-animate text-center">
+                        <div class="overflow-hidden rounded-lg shadow-lg mb-4 bg-gray-100">
+                            <img src="img/img4.jpg?v=1.0.0" alt="Oeuvre d'art par Sylvie van Waesberghe 2" data-translate-key="galleryAlt2"
+                                class="w-full h-auto object-cover aspect-square transition duration-500 ease-in-out group-hover:scale-105">
+                        </div>
+                        <p data-translate-key="galleryCaption2" class="mt-2 text-sm text-gray-700">Légende de l'œuvre 2</p>
+                    </div>
+                     <!-- Œuvre 3 -->
+                     <div class="group scroll-animate text-center">
+                        <div class="overflow-hidden rounded-lg shadow-lg mb-4 bg-gray-100">
+                            <img src="img/img5.jpg?v=1.0.0" alt="Oeuvre d'art par Sylvie van Waesberghe 3" data-translate-key="galleryAlt3"
+                                class="w-full h-auto object-cover aspect-square transition duration-500 ease-in-out group-hover:scale-105">
+                        </div>
+                        <p data-translate-key="galleryCaption3" class="mt-2 text-sm text-gray-700">Légende de l'œuvre 3</p>
+                    </div>
+                     <!-- Œuvre 4 -->
+                     <div class="group scroll-animate text-center">
+                        <div class="overflow-hidden rounded-lg shadow-lg mb-4 bg-gray-100">
+                            <img src="img/img6.jpg?v=1.0.0" alt="Oeuvre d'art par Sylvie van Waesberghe 4" data-translate-key="galleryAlt4"
+                                class="w-full h-auto object-cover aspect-square transition duration-500 ease-in-out group-hover:scale-105">
+                        </div>
+                        <p data-translate-key="galleryCaption4" class="mt-2 text-sm text-gray-700">Légende de l'œuvre 4</p>
+                    </div>
+                    <!-- Œuvre 5 -->
+                    <div class="group scroll-animate text-center">
+                        <div class="overflow-hidden rounded-lg shadow-lg mb-4 bg-gray-100">
+                            <img src="img/img7.jpg?v=1.0.0" alt="Oeuvre d'art par Sylvie van Waesberghe 5" data-translate-key="galleryAlt5"
+                                class="w-full h-auto object-cover aspect-square transition duration-500 ease-in-out group-hover:scale-105">
+                        </div>
+                        <p data-translate-key="galleryCaption5" class="mt-2 text-sm text-gray-700">Légende de l'œuvre 5</p>
+                    </div>
+                    <!-- Œuvre 6 -->
+                    <div class="group scroll-animate text-center">
+                        <div class="overflow-hidden rounded-lg shadow-lg mb-4 bg-gray-100">
+                            <img src="img/img8.jpg?v=1.0.0" alt="Oeuvre d'art par Sylvie van Waesberghe 6" data-translate-key="galleryAlt6"
+                                class="w-full h-auto object-cover aspect-square transition duration-500 ease-in-out group-hover:scale-105">
+                        </div>
+                        <p data-translate-key="galleryCaption6" class="mt-2 text-sm text-gray-700">Légende de l'œuvre 6</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Témoignages -->
+        <section id="testimonials" class="py-20 md:py-32 bg-brand-ivory">
+            <div class="container mx-auto px-6 lg:px-8 max-w-screen-lg text-center">
+                <h2 data-translate-key="testimonialsTitle" class="font-serif text-4xl md:text-5xl font-bold text-brand-dark mb-12 scroll-animate">
+                    Témoignages de Clients
+                </h2>
+                <div class="space-y-10">
+                    <blockquote class="scroll-animate max-w-3xl mx-auto">
+                        <p data-translate-key="testimonial1Quote" class="text-2xl italic text-gray-800 leading-relaxed">"Superbe , tu nous impressionnes toujours plus !."</p>
+                        <cite data-translate-key="testimonial1Cite" class="block text-md font-semibold text-brand-gold mt-4 not-italic">- Une cliente</cite>
+                    </blockquote>
+                    <blockquote class="scroll-animate max-w-3xl mx-auto">
+                        <p data-translate-key="testimonial2Quote" class="text-2xl italic text-gray-800 leading-relaxed">"Posséder une œuvre de Sylvie van Waesberghe est un investissement émotionnel."</p>
+                        <cite data-translate-key="testimonial2Cite" class="block text-md font-semibold text-brand-gold mt-4 not-italic">- Une autre cliente</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action Final -->
+        <section id="contact" class="py-20 md:py-32 bg-white text-center">
+            <div class="container mx-auto px-6 lg:px-8 max-w-screen-md">
+                <h2 data-translate-key="contactTitle" class="font-serif text-4xl md:text-5xl font-bold text-brand-dark mb-6 scroll-animate">
+                    Prendre contact
+                </h2>
+                <p data-translate-key="contactText" class="text-lg text-gray-700 leading-relaxed mb-10 scroll-animate">
+                    Contactez Sylvie van Waesberghe pour discuter de vos envies ou obtenir des informations sur les œuvres disponibles via son email sylvie@waesberghe.com ou ses réseaux sociaux.
+                </p>
+                <!-- Icônes avec texte en dessous -->
+                <div class="mt-10 flex justify-center space-x-8 scroll-animate">
+                    <!-- Icône Email -->
+                    <a href="mailto:sylvie@waesberghe.com?subject=Demande d'information depuis le site web"
+                        aria-label="Envoyer un email à Sylvie van Waesberghe" data-translate-key="contactEmailAria"
+                        class="text-brand-gold hover:opacity-80 transition duration-300 flex flex-col items-center">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8.99l8 6 8-6V18H4z" />
+                        </svg>
+                        <span data-translate-key="contactEmailLabel" class="mt-2 text-sm text-brand-dark">Email</span>
+                    </a>
+                    <!-- Icône Facebook -->
+                    <a href="https://www.facebook.com/sylvie.vanwaesberghe" target="_blank" rel="noopener noreferrer"
+                        aria-label="Sylvie van Waesberghe sur Facebook" data-translate-key="contactFacebookAria"
+                        class="text-[var(--facebook-blue)] hover:opacity-80 transition duration-300 flex flex-col items-center">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                            <path fill-rule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clip-rule="evenodd" />
+                        </svg>
+                        <span data-translate-key="contactFacebookLabel" class="mt-2 text-sm text-brand-dark">Facebook</span>
+                    </a>
+                    <!-- Icône Instagram -->
+                    <a href="https://www.instagram.com/sylvievanwaesberghe/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Sylvie van Waesberghe sur Instagram" data-translate-key="contactInstagramAria"
+                        class="text-[var(--instagram-pink)] hover:opacity-80 transition duration-300 flex flex-col items-center">
+                        <svg class="w-10 h-10" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                             <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.07 1.646.07 4.85s-.012 3.584-.07 4.85c-.148 3.227-1.667 4.77-4.919 4.919-1.266.058-1.646.07-4.85.07s-3.584-.012-4.85-.07c-3.251-.149-4.77-1.691-4.919-4.919-.058-1.265-.07-1.646-.07-4.85s.012-3.584.07-4.85c.149-3.227 1.668-4.77 4.919-4.919 1.266-.058 1.646-.07 4.85-.07zm0-2.163c-3.273 0-3.663.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.67-.073 4.947s.014 3.667.072 4.947c.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.67.072 4.947.072s3.667-.014 4.947-.072c4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.67.073-4.947s-.014-3.667-.072-4.947c-.197-4.358-2.617-6.78-6.98-6.98-1.281-.059-1.67-.073-4.946-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.162 6.162 6.162 6.162-2.759 6.162-6.162-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.791-4-4s1.791-4 4-4 4 1.791 4 4-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                        </svg>
+                        <span data-translate-key="contactInstagramLabel" class="mt-2 text-sm text-brand-dark">Instagram</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-gray-400 py-8 text-center">
+        <div class="container mx-auto px-6 lg:px-8">
+
+            <!-- Copyright -->
+            <p class="text-sm mb-4"> <!-- Added margin-bottom -->
+                © <span id="currentYear"></span> Sylvie van Waesberghe. <span data-translate-key="footerRights">Tous droits réservés.</span>
+            </p>
+
+            <!-- Language Switcher (Footer) - ADDED -->
+            <div class="lang-switcher text-sm space-x-2">
+                <a href="#" id="lang-fr-footer" data-lang="fr">FR</a>
+                <span>|</span>
+                <a href="#" id="lang-en-footer" data-lang="en">EN</a>
+                <span>|</span>
+                <a href="#" id="lang-es-footer" data-lang="es">ES</a> <!-- Added Spanish -->
+            </div>
+            <!-- End Language Switcher (Footer) -->
+        </div>
+    </footer>
+
+    <script>
+        // Global variables
+        let translations = {}; // Will be populated from CSV
+        const supportedLangs = ['fr', 'en', 'es'];
+        let currentLang = 'fr'; // Default language
+        let translatableElements = []; // Cache elements after DOM is ready
+
+        async function loadTranslations() {
+            try {
+                const response = await fetch('translations.csv');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const csvData = await response.text();
+                parseCSV(csvData);
+                console.log("Translations loaded successfully.");
+            } catch (error) {
+                console.error("Failed to load or parse translations:", error);
+                // Optionally, load fallback translations or display an error message
+                // For now, the page might display keys if loading fails before init
+            }
+        }
+
+        function parseCSV(csvText) {
+            const lines = csvText.trim().split('\n');
+            if (lines.length < 2) return; // Need header + at least one data line
+
+            const headers = lines[0].trim().split('|').map(h => h.trim()); // [key, fr, en, es]
+            const keyIndex = headers.indexOf('key');
+            if (keyIndex === -1) {
+                 console.error("CSV header row must contain 'key'");
+                 return;
+            }
+
+            const langIndices = {};
+            supportedLangs.forEach(lang => {
+                const index = headers.indexOf(lang);
+                if (index !== -1) {
+                    langIndices[lang] = index;
+                } else {
+                    console.warn(`Language column '${lang}' not found in CSV header.`);
+                }
+            });
+
+            translations = {}; // Reset global object
+
+            for (let i = 1; i < lines.length; i++) {
+                const values = lines[i].trim().split('|');
+                 // Basic check for correct column count, might need more robust parsing for quoted strings if needed
+                if (values.length !== headers.length) {
+                    console.warn(`Skipping malformed CSV line ${i + 1}: ${lines[i]}`);
+                    continue;
+                }
+
+                const key = values[keyIndex].trim();
+                if (!key) continue; // Skip lines without a key
+
+                translations[key] = {};
+                supportedLangs.forEach(lang => {
+                    if (langIndices[lang] !== undefined) {
+                        translations[key][lang] = values[langIndices[lang]].trim();
+                    } else {
+                         translations[key][lang] = `[${lang}_missing]`; // Placeholder if lang column missing
+                    }
+                });
+            }
+        }
+        // --- END: Fetch and Parse Translations ---
+
+
+        function setLanguage(lang) {
+            if (!supportedLangs.includes(lang)) {
+                console.warn(`Language ${lang} not supported.`);
+                return;
+            }
+             // Ensure translations are loaded before trying to set language
+            if (Object.keys(translations).length === 0) {
+                console.warn("Translations not loaded yet, cannot set language.");
+                return;
+            }
+
+            currentLang = lang;
+            localStorage.setItem('preferredLang', lang); // Store preference
+
+            // Update html lang attribute
+            document.documentElement.lang = lang;
+
+            // Update text content using cached elements
+            translatableElements.forEach(el => {
+                const key = el.getAttribute('data-translate-key');
+                const translationData = translations[key];
+
+                if (translationData && translationData[lang]) {
+                    // Handle elements that might contain HTML
+                    if (['heroTitle', 'aboutTitle'].includes(key)) {
+                         el.innerHTML = translationData[lang];
+                    }
+                    // Handle alt attributes for images
+                    else if (el.tagName === 'IMG' && el.hasAttribute('alt')) {
+                         el.alt = translationData[lang];
+                    }
+                    // Handle aria-label attributes for links
+                    else if (el.tagName === 'A' && el.hasAttribute('aria-label')) {
+                         el.setAttribute('aria-label', translationData[lang]);
+                    }
+                    // Handle title tag
+                    else if (el.tagName === 'TITLE') {
+                         el.textContent = translationData[lang];
+                    }
+                     // Default to textContent (covers captions, paragraphs, etc.)
+                    else {
+                         el.textContent = translationData[lang];
+                    }
+                } else {
+                    console.warn(`Translation key "${key}" or language "${lang}" not found in loaded data.`);
+                    // Keep existing text or show key as fallback
+                    if (!el.textContent) { // Only set if empty to avoid overwriting initial HTML
+                         el.textContent = `[${key}]`;
+                    }
+                }
+            });
+
+             // Update active button style FOR ALL SWITCHERS
+             const allLangLinks = document.querySelectorAll('.lang-switcher a[data-lang]');
+             allLangLinks.forEach(link => {
+                 link.classList.toggle('active', link.dataset.lang === lang);
+             });
+        }
+
+        function determineInitialLanguage() {
+             // 1. Check localStorage
+            const storedLang = localStorage.getItem('preferredLang');
+            if (storedLang && supportedLangs.includes(storedLang)) {
+                return storedLang;
+            }
+            // 2. Check browser language
+            const browserLang = navigator.language.split('-')[0];
+            if (supportedLangs.includes(browserLang)) {
+                 return browserLang;
+            }
+            // 3. Default to French
+            return 'fr';
+        }
+
+        function setupLanguageSwitcherListeners() {
+            document.querySelectorAll('.lang-switcher a[data-lang]').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault(); // Prevent page jump
+                    const selectedLang = e.target.dataset.lang;
+                    if (currentLang !== selectedLang) {
+                        setLanguage(selectedLang);
+                    }
+                });
+            });
+        }
+        // --- END: Language Handling Logic ---
+
+
+        const scrollElements = document.querySelectorAll('.scroll-animate');
+
+        const elementInView = (el, threshold = 0.1) => {
+            const elementTop = el.getBoundingClientRect().top;
+            return (
+                elementTop <= (window.innerHeight || document.documentElement.clientHeight) * (1 - threshold)
+            );
+        };
+
+        const displayScrollElement = (element) => {
+            element.classList.add('is-visible');
+        };
+
+        const handleScrollAnimation = () => {
+            scrollElements.forEach((el) => {
+                if (elementInView(el, 0.1)) {
+                    displayScrollElement(el);
+                }
+            })
+        }
+        // --- END: Scroll Animation Logic ---
+
+
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Set current year
+            const yearElement = document.getElementById('currentYear');
+            if (yearElement) {
+                 yearElement.textContent = new Date().getFullYear();
+            }
+
+            // Cache translatable elements
+            translatableElements = document.querySelectorAll('[data-translate-key]');
+
+            // Load translations from CSV
+            await loadTranslations();
+
+             // Determine and set the initial language AFTER translations are loaded
+            const initialLang = determineInitialLanguage();
+            setLanguage(initialLang);
+
+            // Setup language switcher button listeners AFTER initial language is set
+            setupLanguageSwitcherListeners();
+
+             // Initialize scroll animations
+             handleScrollAnimation(); // Initial check
+             window.addEventListener('scroll', handleScrollAnimation);
+
+            console.log("Page initialized.");
+        });
+        // --- END: Initialization ---
+
+    </script>
+
+</body>
+
+</html>
